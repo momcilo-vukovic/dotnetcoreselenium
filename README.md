@@ -11,8 +11,6 @@ This Dockerfile is able to build a Linux Docker Image based on Debian 10 which c
 - The goal was to have a comprehensive Docker container where we can run all the .NET Core tests including OpenQA Selenium Chrome Headless UI Tests within CI.
 ---------------------------------------------
 
-* Current docker image on Artifactory: docker.repo.kapschtraffic.com/ebo/build-container/dotnetcoreselenium:1.0.0
-
 ## How to use the dotnetcoreselenium Docker Image
 1. Execute `docker build . -t dotnetcoreselenium:1.0.0` to build a docker image
 2. Prepare `runtest.sh` file the with the corresponding `dotnet test` command, e.g.:
@@ -27,5 +25,5 @@ docker run -it -p 12001:80 -v C:\TestAutomation:/tmp/qa dotnetcoreselenium:1.0.0
 ```
 OR start the execution immediately using the Shell script `runtest.sh` from above, e.g.:
 ```
-docker run -p 12001:80 -v C:\TestAutomation:/tmp/qa docker.repo.kapschtraffic.com/ebo/build-container/dotnetcoreselenium:1.0.0 /bin/bash -C /tmp/qa/runtest.sh
+docker run -p 12001:80 -v C:\TestAutomation:/tmp/qa dotnetcoreselenium:1.0.0 /bin/bash -C /tmp/qa/runtest.sh
 ```
